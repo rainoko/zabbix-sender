@@ -1,16 +1,10 @@
-package io.github.hengyunabc.zabbix.sender.test;
+package io.github.hengyunabc.zabbix.sender.test
 
 import io.github.hengyunabc.zabbix.sender.DataObject;
 import io.github.hengyunabc.zabbix.sender.SenderResult;
 import io.github.hengyunabc.zabbix.sender.ZabbixSender;
 
-import java.io.IOException;
-import java.util.LinkedList;
-import java.util.List;
-
 import org.junit.Test;
-
-import com.alibaba.fastjson.JSONObject;
 
 public class ZabbixSenderTest {
 	
@@ -24,16 +18,14 @@ public class ZabbixSenderTest {
 		DataObject dataObject = new DataObject();
 		dataObject.setHost("172.17.42.1");
 		dataObject.setKey("test_discovery_rule");
+
+		def data = '''\
+		{
+			"data" : { "hello" : "hello"}
+
+	  }'''
 		
-		JSONObject data = new JSONObject();
-		List<JSONObject> aray = new LinkedList<>();
-		JSONObject xxx = new JSONObject();
-		xxx.put("hello", "hello");
-		
-		aray.add(xxx);
-		data.put("data", aray);
-		
-		dataObject.setValue(data.toJSONString());
+		dataObject.setValue(data);
 		dataObject.setClock(System.currentTimeMillis());
 		SenderResult result = zabbixSender.send(dataObject);
 

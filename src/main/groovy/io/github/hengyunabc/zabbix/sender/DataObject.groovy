@@ -1,6 +1,6 @@
 package io.github.hengyunabc.zabbix.sender;
 
-import com.alibaba.fastjson.JSON;
+import groovy.json.JsonOutput;
 
 public class DataObject {
 	long clock;
@@ -61,41 +61,9 @@ public class DataObject {
 		}
 	}
 
-	public long getClock() {
-		return clock;
-	}
-
-	public void setClock(long clock) {
-		this.clock = clock;
-	}
-
-	public String getHost() {
-		return host;
-	}
-
-	public void setHost(String host) {
-		this.host = host;
-	}
-
-	public String getKey() {
-		return key;
-	}
-
-	public void setKey(String key) {
-		this.key = key;
-	}
-
-	public String getValue() {
-		return value;
-	}
-
-	public void setValue(String value) {
-		this.value = value;
-	}
-	
 	@Override
 	public String toString(){
-		return JSON.toJSONString(this);
+		return JsonOutput.toJson(this);
 	}
 
 }
