@@ -2,7 +2,7 @@ package io.github.hengyunabc.zabbix.sender.test
 
 import io.github.hengyunabc.zabbix.sender.DataObject;
 import io.github.hengyunabc.zabbix.sender.SenderResult;
-import io.github.hengyunabc.zabbix.sender.ZabbixSender;
+import io.github.hengyunabc.zabbix.sender.ZabbixSenderImpl;
 
 import org.junit.Test;
 
@@ -13,7 +13,7 @@ public class ZabbixSenderTest {
 	public void test_LLD_rule() throws IOException {
 		String host = "127.0.0.1";
 		int port = 49156;
-		ZabbixSender zabbixSender = new ZabbixSender(host, port);
+		ZabbixSenderImpl zabbixSender = new ZabbixSenderImpl(host, port);
 
 		DataObject dataObject = new DataObject();
 		dataObject.setHost("172.17.42.1");
@@ -43,7 +43,7 @@ public class ZabbixSenderTest {
 	public void test() throws IOException {
 		String host = "127.0.0.1";
 		int port = 49156;
-		ZabbixSender zabbixSender = new ZabbixSender(host, port);
+		ZabbixSenderImpl zabbixSender = new ZabbixSenderImpl(host, port);
 
 		DataObject dataObject = new DataObject();
 		dataObject.setHost("172.17.42.1");
