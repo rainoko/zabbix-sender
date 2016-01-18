@@ -17,7 +17,7 @@ public class SenderRequest {
 		byte[] content = JsonOutput.toJson(this).getBytes(StandardCharsets.UTF_8)
 
 		def length = content.length
-
+		println "sending content: ${content}"
 		byte[] header = [
 				'Z', 'B', 'X', 'D',
 				'\1',
