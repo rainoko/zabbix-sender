@@ -15,14 +15,17 @@ public class SenderRequest {
 		// https://www.zabbix.org/wiki/Docs/protocols/zabbix_sender/1.8/java_example
 
 		byte[] content = JsonOutput.toJson(this).getBytes(StandardCharsets.UTF_8)
+
+		def length = content.length
+
 		byte[] header = [
-			'Z', 'B', 'X', 'D',
-			'\1',
-			(byte)(length & 0xFF),
-			(byte)((length >> 8) & 0x00FF),
-			(byte)((length >> 16) & 0x0000FF),
-			(byte)((length >> 24) & 0x000000FF),
-			'\0','\0','\0','\0']
+				'Z', 'B', 'X', 'D',
+				'\1',
+				(byte)(length & 0xFF),
+				(byte)((length >> 8) & 0x00FF),
+				(byte)((length >> 16) & 0x0000FF),
+				(byte)((length >> 24) & 0x000000FF),
+				'\0', '\0', '\0', '\0']
 
 		return header + content;
 	}
