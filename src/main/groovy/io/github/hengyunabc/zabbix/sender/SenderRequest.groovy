@@ -1,6 +1,7 @@
 package io.github.hengyunabc.zabbix.sender
 
 import groovy.json.JsonOutput
+import groovy.json.internal.ArrayUtils
 
 import java.nio.charset.StandardCharsets;
 
@@ -27,6 +28,11 @@ public class SenderRequest {
       (byte) ((length >> 24) & 0x000000FF),
       '\0', '\0', '\0', '\0']
 
-    return header + content;
+    byte[] combined = new byte[header.length + content.length];
+
+    System.arraycopy(header,0,combined,0         ,header.length);
+    System.arraycopy(content,0,combined,header.length,content.length);
+
+    return combined;
   }
 }
