@@ -91,7 +91,7 @@ public class ZabbixSenderImpl implements ZabbixSender {
 		// header('ZBXD\1') + len + 0
 		// 5  + 4 + 4
 		String jsonString = new String(responseData, 13, readCount - 13);
-		def json = JsonSlurper.parseText(jsonString);
+		def json = new JsonSlurper().parseText(jsonString);
 		String info = json.info;
 		//example info: processed: 1; failed: 0; total: 1; seconds spent: 0.000053
 		//after split: [, 1, 0, 1, 0.000053]

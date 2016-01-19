@@ -1,13 +1,12 @@
 package io.github.hengyunabc.zabbix.sender
 
 import groovy.json.JsonOutput
-import groovy.json.internal.ArrayUtils
 
-import java.nio.charset.StandardCharsets;
+import java.nio.charset.StandardCharsets
 
 public class SenderRequest {
 
-  def String request;
+  def String request = "sender data";
   def long clock;
   def List<DataObject> data;
 
@@ -18,7 +17,6 @@ public class SenderRequest {
     byte[] content = JsonOutput.toJson(this).getBytes(StandardCharsets.UTF_8)
 
     def length = content.length
-    println "sending content: ${content}"
     byte[] header = [
       'Z', 'B', 'X', 'D',
       '\1',
