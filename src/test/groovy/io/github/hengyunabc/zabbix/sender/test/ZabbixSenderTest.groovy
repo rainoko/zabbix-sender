@@ -1,10 +1,9 @@
 package io.github.hengyunabc.zabbix.sender.test
 
-import io.github.hengyunabc.zabbix.sender.DataObject;
-import io.github.hengyunabc.zabbix.sender.SenderResult;
-import io.github.hengyunabc.zabbix.sender.ZabbixSenderImpl;
-
-import org.junit.Test;
+import io.github.hengyunabc.zabbix.sender.DataObject
+import io.github.hengyunabc.zabbix.sender.SenderResult
+import io.github.hengyunabc.zabbix.sender.ZabbixSenderImpl
+import org.junit.Test
 
 public class ZabbixSenderTest {
 	
